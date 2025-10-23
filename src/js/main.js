@@ -148,11 +148,76 @@ class CodeGame {
 	}
 }
 
+// Animated Background System
+class BackgroundAnimation {
+	constructor() {
+		this.container = document.getElementById('floating-symbols');
+		this.symbolTypes = ['html', 'css', 'js'];
+		this.symbolCount = 0;
+		this.maxSymbols = 12;
+	}
+
+	init() {
+		if (!this.container) return;
+
+		// Create initial symbols
+		for (let i = 0; i < 6; i++) {
+			setTimeout(() => this.createSymbol(), i * 300);
+		}
+
+		// Continuously create new symbols
+		setInterval(() => {
+			if (Math.random() < 0.7) { // 70% chance to create a symbol
+				this.createSymbol();
+			}
+		}, 1000); // Every 1 second
+	}
+
+	createSymbol() {
+		// Don't create too many symbols
+		if (this.symbolCount >= this.maxSymbols) return;
+
+		const symbolType = this.symbolTypes[Math.floor(Math.random() * this.symbolTypes.length)];
+		const symbol = document.createElement('div');
+		symbol.className = `symbol ${symbolType}`;
+
+		// Random position anywhere on screen
+		symbol.style.left = Math.random() * 90 + '%';
+		symbol.style.top = Math.random() * 80 + '%';
+
+		// Random animation delay
+		symbol.style.animationDelay = Math.random() * 1 + 's';
+
+		// Consistent animation duration (3-5 seconds)
+		symbol.style.animationDuration = (3 + Math.random() * 2) + 's';
+
+		// Some symbols get pulse effect
+		if (Math.random() < 0.3) {
+			symbol.classList.add('pulse');
+		}
+
+		this.container.appendChild(symbol);
+		this.symbolCount++;
+
+		// Remove symbol after animation completes
+		setTimeout(() => {
+			if (symbol.parentNode) {
+				symbol.parentNode.removeChild(symbol);
+				this.symbolCount--;
+			}
+		}, 5000); // 5 seconds max
+	}
+}
+
 // Start application when DOM is loaded
 document.addEventListener('DOMContentLoaded', async () => {
 	Debug.logInit('DOM', { state: 'loaded' });
 
 	try {
+		// Initialize background animation
+		const backgroundAnimation = new BackgroundAnimation();
+		backgroundAnimation.init();
+
 		const app = new CodeGame();
 		await app.init();
 	} catch (error) {

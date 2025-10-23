@@ -52,7 +52,7 @@ export class UserManager {
 				<div class="author-info" id="authorInfo">
 					<p class="author">Author: <a href="https://github.com/AleksandreKhundzakishvili" target="_blank"
 							rel="noopener">Aleksandre Khundzakishvili</a></p>
-					<p class="version">Version: 1.0.1</p>
+					<p class="version">Version: 1.1.1</p>
 				</div>
 				<h2>Select Your Player</h2>
 				<div class="player-selection">

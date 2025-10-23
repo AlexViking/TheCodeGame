@@ -82,7 +82,15 @@ code-game/
 
 ## 📋 Version History
 
-### Version 1.1.0 (Current)
+### Version 1.1.1 (Current)
+- **Visual Enhancements**:
+  - Added animated background with floating pixelated code symbols
+  - Pixelated HTML `<>`, CSS `{}`, and JavaScript `()` symbols with sparkle animations
+  - Background animations work across both level selection and game screens
+  - Symbols randomly appear with varying animation delays and durations
+  - Some symbols have pulse effects for added visual interest
+
+### Version 1.1.0
 
 -   **Multi-Language Support**:
 
