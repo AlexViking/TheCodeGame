@@ -140,7 +140,7 @@ export class UI {
 			// Populate each column with its respective levels
 			Object.entries(levelsByCategory).forEach(([category, levels]) => {
 				let targetContainer;
-				switch(category.toUpperCase()) {
+				switch (category.toUpperCase()) {
 					case 'HTML':
 						targetContainer = container.querySelector('#html-levels');
 						break;
@@ -262,7 +262,6 @@ export class UI {
 		style.id = 'categorized-level-styles';
 		style.textContent = `
 			.level-select {
-				background-color: #1a1a2e;
 				color: #eee;
 				height: 100vh;
 				overflow: hidden;

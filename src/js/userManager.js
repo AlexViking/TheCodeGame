@@ -120,7 +120,6 @@ export class UserManager {
 				left: 0;
 				width: 100%;
 				height: 100%;
-				background: rgba(26, 26, 46, 0.95);
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -130,7 +129,6 @@ export class UserManager {
 			}
 
 			.player-select-modal {
-				background: #16213e;
 				border: none;
 				padding: 40px;
 				width: 100%;
