@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Code Game</title>
+	<link rel="stylesheet" href="src/css/main.css">
+	<link rel="stylesheet" href="src/css/game.css">
+</head>
+
+<body>
+	<div id="levelSelect" class="level-select">
+		<div class="level-cards-container">
+			<!-- Level cards will be dynamically added here -->
+		</div>
+	</div>
+
+	<div id="gameContainer" class="container" style="display: none;">
+		<div class="header">
+			<div class="header-left">
+				<div class="progress-info">
+					RULES COMPLETED: <span id="rulesCompleted">0</span> / <span id="totalRules">0</span>
+				</div>
+			</div>
+			<div class="header-center">
+				<h1 class="title">THE CODE GAME</h1>
+				<p class="level-info">LEVEL: LOADING...</p>
+			</div>
+			<div class="header-right">
+				<button class="back-button">BACK TO MENU</button>
+			</div>
+		</div>
+
+		<div class="game-area">
+			<div class="left-panel">
+				<div class="code-editor-container">
+					<div class="line-numbers" id="lineNumbers">1</div>
+					<textarea id="codeInput" class="code-input"
+						placeholder="<!-- Type your HTML code here -->"></textarea>
+					<div class="error-indicators" id="errorIndicators"></div>
+				</div>
+
+				<div class="rules-section" id="rulesSection">
+					<!-- Rules will be dynamically added here -->
+				</div>
+			</div>
+
+			<div class="right-panel">
+				<div class="preview-header">LIVE PREVIEW</div>
+				<div id="previewArea" class="preview-area">
+					<!-- Preview will be rendered here -->
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="modal-overlay" id="modalOverlay"></div>
+	<div class="success-modal" id="successModal">
+		<h2>🎉 LEVEL COMPLETE! 🎉</h2>
+		<p>You've mastered the level!</p>
+		<div class="success-buttons">
+			<button class="submit-button next-level" id="nextLevelBtn">NEXT LEVEL</button>
+			<button class="submit-button back-menu" id="backMenuBtn">BACK TO MENU</button>
+		</div>
+	</div>
+
+	<script type="module" src="src/js/main.js"></script>
+</body>
+
+</html>
