@@ -1,0 +1,64 @@
+{
+	"id": "css-5",
+	"name": "CSS - Layout & Positioning",
+	"description": "Learn about flexbox and positioning elements",
+	"icon": "css-icon.svg",
+	"difficulty": "intermediate",
+	"levelNumber": 5,
+	"category": "CSS",
+	"prerequisites": ["css-4"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Create a container div with flexbox display",
+			"hint": "Create: &lt;div class=\"container\"&gt;&lt;/div&gt; then style: .container { display: flex; }. Flexbox is great for layouts!",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "class=\"container\""
+			},
+			"additionalChecks": [
+				{
+					"checkType": "regex",
+					"checkParams": {
+						"pattern": "\\.container\\s*{[^}]*display\\s*:\\s*flex",
+						"flags": "i"
+					}
+				}
+			]
+		},
+		{
+			"id": 2,
+			"text": "Add multiple items inside the flex container",
+			"hint": "Add items: &lt;div class=\"container\"&gt;&lt;div class=\"item\"&gt;Item 1&lt;/div&gt;&lt;div class=\"item\"&gt;Item 2&lt;/div&gt;&lt;div class=\"item\"&gt;Item 3&lt;/div&gt;&lt;/div&gt;",
+			"checkType": "complex",
+			"checkParams": {
+				"function": "(code) => { const itemCount = (code.match(/class=\"item\"/g) || []).length; return itemCount >= 3; }"
+			}
+		},
+		{
+			"id": 3,
+			"text": "Center the content and add gap between items",
+			"hint": "Update container: .container { display: flex; justify-content: center; gap: 20px; }. This centers and spaces items.",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "\\.container\\s*{[^}]*justify-content\\s*:\\s*center",
+				"flags": "i"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "regex",
+					"checkParams": {
+						"pattern": "\\.container\\s*{[^}]*gap\\s*:",
+						"flags": "i"
+					}
+				}
+			]
+		}
+	],
+	"completion": {
+		"unlocks": ["css-6"],
+		"message": "🎉 Fantastic! You can now create flexible layouts!",
+		"achievement": "css_layout",
+		"keyValue": "CSS05_LAYOUT_POSITIONING"
+	}
+}

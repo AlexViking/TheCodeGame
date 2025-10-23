@@ -1,0 +1,54 @@
+{
+	"id": "html-6",
+	"name": "HTML - Complete Document",
+	"description": "Create a proper HTML document structure",
+	"icon": "html-icon.svg",
+	"difficulty": "intermediate",
+	"levelNumber": 6,
+	"category": "HTML",
+	"prerequisites": ["html-5"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Create a complete HTML document with &lt;html&gt;, &lt;head&gt;, and &lt;body&gt; tags",
+			"hint": "A proper HTML document has structure: &lt;html&gt; (root), &lt;head&gt; (metadata), &lt;body&gt; (visible content). Wrap everything: &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;[your content]&lt;/body&gt;&lt;/html&gt;",
+			"checkType": "complex",
+			"checkParams": {
+				"function": "(code) => { const hasHtml = code.includes('<html>') && code.includes('</html>'); const hasHead = code.includes('<head>') && code.includes('</head>'); const hasBody = code.includes('<body>') && code.includes('</body>'); return hasHtml && hasHead && hasBody; }"
+			}
+		},
+		{
+			"id": 2,
+			"text": "Add a &lt;title&gt; tag inside the &lt;head&gt; section",
+			"hint": "The title appears in the browser tab. Add it inside head: &lt;head&gt;&lt;title&gt;My Page Title&lt;/title&gt;&lt;/head&gt;",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<title>"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</title>" }
+				}
+			]
+		},
+		{
+			"id": 3,
+			"text": "Include at least a heading, paragraph, and list in the body",
+			"hint": "Put all your visible content in the &lt;body&gt; section. Include at least one heading (h1-h6), one paragraph (&lt;p&gt;), and one list (&lt;ul&gt; with &lt;li&gt; items).",
+			"checkType": "complex",
+			"checkParams": {
+				"function": "(code) => { const hasHeading = /h[1-6]>/.test(code); const hasParagraph = code.includes('<p>') && code.includes('</p>'); const hasList = code.includes('<ul>') && code.includes('<li>'); return hasHeading && hasParagraph && hasList; }"
+			}
+		}
+	],
+	"completion": {
+		"unlocks": ["css-1"],
+		"message": "🎉 Congratulations! You've mastered HTML fundamentals! CSS levels are now unlocked! You've earned bonus XP for completing all HTML levels!",
+		"achievement": "html_master",
+		"xp": 100,
+		"subject": "html",
+		"bonusXP": 200,
+		"isLastInCategory": true
+	}
+}

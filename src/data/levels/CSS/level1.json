@@ -1,0 +1,58 @@
+{
+	"id": "css-1",
+	"name": "CSS - First Steps",
+	"description": "Your first encounter with CSS - learn about colors and basic styling",
+	"icon": "css-icon.svg",
+	"difficulty": "beginner",
+	"levelNumber": 1,
+	"category": "CSS",
+	"prerequisites": ["html-6"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Create a paragraph with some text",
+			"hint": "Start with HTML first! Create a simple paragraph: &lt;p&gt;Hello CSS!&lt;/p&gt;. CSS needs HTML to style!",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<p>"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</p>" }
+				}
+			]
+		},
+		{
+			"id": 2,
+			"text": "Add a &lt;style&gt; tag to your HTML",
+			"hint": "CSS goes inside &lt;style&gt; tags! Add: &lt;style&gt;&lt;/style&gt; at the top of your HTML. This is where we'll write CSS rules.",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<style>"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</style>" }
+				}
+			]
+		},
+		{
+			"id": 3,
+			"text": "Write your first CSS rule to make the paragraph text red",
+			"hint": "Inside the style tags, write: p { color: red; }. The 'p' selects all paragraphs, 'color' changes text color, and 'red' is the color value.",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "p\\s*{[^}]*color\\s*:\\s*red",
+				"flags": "i"
+			}
+		}
+	],
+	"completion": {
+		"unlocks": ["css-2"],
+		"message": "🎉 Great start! You've learned about CSS and colors!",
+		"achievement": "css_first_steps",
+		"keyValue": "CSS01_FIRST_STEPS"
+	}
+}

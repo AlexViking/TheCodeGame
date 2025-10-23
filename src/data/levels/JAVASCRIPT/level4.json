@@ -1,0 +1,72 @@
+{
+	"id": "js-4",
+	"name": "JavaScript - Conditional Logic",
+	"description": "Learn about if statements and making decisions in code",
+	"icon": "js-icon.svg",
+	"difficulty": "beginner",
+	"levelNumber": 4,
+	"category": "JAVASCRIPT",
+	"prerequisites": ["js-3"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Create an input field, button, and result display",
+			"hint": "Add: &lt;input type=\"text\" id=\"userInput\" placeholder=\"Enter a number\"&gt;&lt;button onclick=\"checkNumber()\"&gt;Check Number&lt;/button&gt;&lt;p id=\"result\"&gt;Result will show here&lt;/p&gt;",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "<input[^>]*type=[\"']text[\"']",
+				"flags": "i"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "<button" }
+				},
+				{
+					"checkType": "regex",
+					"checkParams": {
+						"pattern": "<p[^>]*id=",
+						"flags": "i"
+					}
+				}
+			]
+		},
+		{
+			"id": 2,
+			"text": "Create a function that uses an if statement to check the number",
+			"hint": "Write: function checkNumber() { let num = document.getElementById('userInput').value; if (num > 10) { document.getElementById('result').innerHTML = 'Big number!'; } }",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "function"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "regex",
+					"checkParams": {
+						"pattern": "if\\s*\\(",
+						"flags": "i"
+					}
+				},
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "innerHTML" }
+				}
+			]
+		},
+		{
+			"id": 3,
+			"text": "Add an else statement to handle small numbers",
+			"hint": "Complete the function: function checkNumber() { let num = document.getElementById('userInput').value; if (num > 10) { document.getElementById('result').innerHTML = 'Big number!'; } else { document.getElementById('result').innerHTML = 'Small number!'; } }",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "else"
+			}
+		}
+	],
+	"completion": {
+		"unlocks": ["js-5"],
+		"message": "🎉 Amazing! You can now make decisions in your code!",
+		"achievement": "js_conditional_logic",
+		"keyValue": "JS04_CONDITIONAL_LOGIC"
+	}
+}

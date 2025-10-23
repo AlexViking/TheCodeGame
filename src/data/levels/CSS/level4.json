@@ -1,0 +1,63 @@
+{
+	"id": "css-4",
+	"name": "CSS - Box Model & Spacing",
+	"description": "Learn about margins, padding, and borders",
+	"icon": "css-icon.svg",
+	"difficulty": "beginner",
+	"levelNumber": 4,
+	"category": "CSS",
+	"prerequisites": ["css-3"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Create a div element with some content",
+			"hint": "Add a div to your HTML: &lt;div&gt;This is my box&lt;/div&gt;. We'll style this div to learn about the box model.",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<div>"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</div>" }
+				}
+			]
+		},
+		{
+			"id": 2,
+			"text": "Add a border to your div using CSS",
+			"hint": "Style your div: div { border: 2px solid black; }. The border property takes width, style, and color.",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "div\\s*{[^}]*border\\s*:",
+				"flags": "i"
+			}
+		},
+		{
+			"id": 3,
+			"text": "Add margin to create space around the element",
+			"hint": "Add margin: div { border: 2px solid black; margin: 20px; }. Margin pushes other elements away.",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "div\\s*{[^}]*margin\\s*:",
+				"flags": "i"
+			}
+		},
+		{
+			"id": 4,
+			"text": "Set a specific width for the element",
+			"hint": "Complete your styling: div { border: 2px solid black; margin: 20px; width: 300px; }. Width controls element size.",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "div\\s*{[^}]*width\\s*:",
+				"flags": "i"
+			}
+		}
+	],
+	"completion": {
+		"unlocks": ["css-5"],
+		"message": "🎉 Amazing! You understand the CSS box model!",
+		"achievement": "css_box_model",
+		"keyValue": "CSS04_BOX_MODEL"
+	}
+}

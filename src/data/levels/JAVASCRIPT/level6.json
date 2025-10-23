@@ -1,0 +1,64 @@
+{
+	"id": "js-6",
+	"name": "JavaScript - Interactive Application",
+	"description": "Create a complete interactive web application",
+	"icon": "js-icon.svg",
+	"difficulty": "intermediate",
+	"levelNumber": 6,
+	"category": "JAVASCRIPT",
+	"prerequisites": ["js-5"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Create a simple calculator interface with input fields and buttons",
+			"hint": "Build calculator: &lt;input id=\"num1\"&gt; &lt;input id=\"num2\"&gt; &lt;button onclick=\"calculate()\"&gt;Add&lt;/button&gt; &lt;p id=\"result\"&gt;&lt;/p&gt;",
+			"checkType": "complex",
+			"checkParams": {
+				"function": "(code) => { const inputs = (code.match(/<input/gi) || []).length; const buttons = (code.match(/<button/gi) || []).length; return inputs >= 2 && buttons >= 1; }"
+			}
+		},
+		{
+			"id": 2,
+			"text": "Create a calculate function that performs math operations",
+			"hint": "Write function: function calculate() { let a = parseInt(document.getElementById(\"num1\").value); let b = parseInt(document.getElementById(\"num2\").value); let sum = a + b; document.getElementById(\"result\").innerHTML = sum; }",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "function calculate"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "regex",
+					"checkParams": {
+						"pattern": "parseInt|parseFloat|Number",
+						"flags": "i"
+					}
+				}
+			]
+		},
+		{
+			"id": 3,
+			"text": "Add form validation to check for empty inputs",
+			"hint": "Add validation: if (num1.value === \"\" || num2.value === \"\") { alert(\"Please enter both numbers!\"); return; } Always validate user input!",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "if.*===.*[\"'][\"']",
+				"flags": "i"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "return" }
+				}
+			]
+		}
+	],
+	"completion": {
+		"unlocks": [],
+		"message": "🎉 Congratulations! You've mastered JavaScript fundamentals! You've earned bonus XP for completing all JavaScript levels!",
+		"achievement": "js_master",
+		"xp": 100,
+		"subject": "javascript",
+		"bonusXP": 200,
+		"isLastInCategory": true
+	}
+}

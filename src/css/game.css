@@ -1,0 +1,458 @@
+/* Main Game Area */
+.game-area {
+	flex: 1;
+	display: flex;
+	height: calc(100vh - 80px);
+	min-height: 500px;
+}
+
+/* Left Panel - Code Editor */
+.left-panel {
+	width: 50%;
+	background-color: #16213e;
+	border-right: 4px solid #0f3460;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	overflow-y: auto;
+}
+
+.code-editor-container {
+	position: relative;
+	height: 40%;
+	min-height: 200px;
+	margin-bottom: 20px;
+	border: 2px solid #0f3460;
+	background-color: #0f1e3d;
+	display: flex;
+}
+
+.line-numbers {
+	background-color: #0a1528;
+	color: #6c7b7f;
+	font-family: 'Courier New', monospace;
+	font-size: 14px;
+	padding: 20px 10px 20px 20px;
+	text-align: right;
+	user-select: none;
+	border-right: 1px solid #0f3460;
+	min-width: 50px;
+	line-height: 1.5;
+	white-space: pre;
+}
+
+.code-input {
+	flex: 1;
+	height: 100%;
+	background-color: transparent;
+	border: none;
+	color: #4ecca3;
+	font-family: 'Courier New', monospace;
+	font-size: 14px;
+	padding: 20px;
+	resize: none;
+	line-height: 1.5;
+}
+
+.code-input:focus {
+	outline: none;
+}
+
+.code-editor-container:focus-within {
+	border-color: #4ecca3;
+}
+
+.error-indicators {
+	position: absolute;
+	top: 20px;
+	right: 10px;
+	pointer-events: none;
+}
+
+.error-indicator {
+	position: absolute;
+	right: 0;
+	width: 16px;
+	height: 21px;
+	background-color: #e94560;
+	color: white;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 21px;
+	cursor: pointer;
+	pointer-events: all;
+	border-radius: 2px;
+	transition: all 0.3s ease;
+}
+
+.error-indicator:hover {
+	background-color: #c73650;
+	transform: scale(1.1);
+}
+
+.error-tooltip {
+	position: absolute;
+	right: 25px;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: #1a1a2e;
+	color: #eee;
+	padding: 8px 12px;
+	border: 1px solid #e94560;
+	border-radius: 4px;
+	font-family: 'Press Start 2P', monospace;
+	font-size: 8px;
+	white-space: nowrap;
+	z-index: 1000;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+	max-width: 300px;
+	word-wrap: break-word;
+	white-space: normal;
+	line-height: 1.4;
+}
+
+.error-indicator:hover .error-tooltip {
+	opacity: 1;
+}
+
+/* Rules Section */
+.rules-section {
+	flex: 1;
+	overflow-y: auto;
+}
+
+.rule-card {
+	background-color: #0f3460;
+	border: 2px solid #000;
+	margin-bottom: 15px;
+	position: relative;
+	transition: all 0.3s ease;
+}
+
+.rule-card.completed {
+	border-color: #4ecca3;
+	opacity: 0.8;
+}
+
+.rule-card.current {
+	border-color: #f39c12;
+	box-shadow: 0 0 10px rgba(243, 156, 18, 0.3);
+}
+
+.rule-card.locked {
+	opacity: 0.3;
+	pointer-events: none;
+}
+
+.rule-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.rule-number {
+	background-color: #e94560;
+	color: white;
+	padding: 5px 10px;
+	font-size: 10px;
+	position: absolute;
+	top: -2px;
+	left: -2px;
+}
+
+.rule-card.completed .rule-number {
+	background-color: #4ecca3;
+}
+
+.rule-card.current .rule-number {
+	background-color: #f39c12;
+}
+
+.rule-text {
+	font-size: 10px;
+	line-height: 1.6;
+	padding-left: 40px;
+	flex: 1;
+}
+
+.rule-actions {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.info-button {
+	background-color: #f39c12;
+	color: #000;
+	border: none;
+	padding: 5px 10px;
+	font-family: inherit;
+	font-size: 8px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.info-button:hover {
+	background-color: #e67e22;
+	transform: scale(1.1);
+}
+
+.rule-status {
+	font-size: 16px;
+	margin-left: 10px;
+}
+
+.rule-hint {
+	display: none;
+	padding: 15px;
+	background-color: rgba(243, 156, 18, 0.1);
+	border-top: 2px solid #f39c12;
+	font-size: 9px;
+	line-height: 1.8;
+	color: #f39c12;
+}
+
+.rule-hint.visible {
+	display: block;
+}
+
+.rule-hint code {
+	background-color: rgba(255, 255, 255, 0.1);
+	padding: 2px 5px;
+	font-family: 'Courier New', monospace;
+}
+
+/* Right Panel - Preview */
+.right-panel {
+	width: 50%;
+	background-color: #0f1e3d;
+	padding: 20px;
+	overflow: auto;
+}
+
+.preview-header {
+	background-color: #0f3460;
+	padding: 10px;
+	margin-bottom: 20px;
+	font-size: 10px;
+	text-align: center;
+	color: #4ecca3;
+	border: 2px solid #000;
+}
+
+.preview-area {
+	background-color: white;
+	height: calc(100% - 60px);
+	min-height: 300px;
+	border: 2px solid #0f3460;
+	padding: 20px;
+	color: black;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	overflow-y: auto;
+}
+
+.preview-error {
+	background-color: #e94560;
+	color: white;
+	padding: 20px;
+	font-size: 10px;
+	text-align: center;
+}
+
+/* User content isolation container */
+.user-content-container {
+	/* Reset all inherited styles */
+	all: initial;
+	/* Set basic defaults for user content */
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	color: black;
+	line-height: 1.4;
+	/* Ensure container takes full space */
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+/* Progress Info in Header */
+.progress-info {
+	font-size: 10px;
+	color: #4ecca3;
+}
+
+.back-button {
+	background-color: #e94560;
+	color: white;
+	border: none;
+	padding: 8px 15px;
+	font-family: inherit;
+	font-size: 9px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	margin-left: 10px;
+}
+
+.back-button:hover {
+	background-color: #c73650;
+}
+
+/* Complete Level Button */
+.complete-level-btn {
+	width: 100%;
+	background: linear-gradient(135deg, #4ecca3, #45b7aa);
+	color: #16213e;
+	border: none;
+	padding: 15px 20px;
+	font-family: 'Press Start 2P', monospace;
+	font-size: 10px;
+	cursor: pointer;
+	text-transform: uppercase;
+	margin-top: 20px;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 8px rgba(78, 204, 163, 0.3);
+	display: none;
+	animation: pulse-glow 2s infinite;
+}
+
+.complete-level-btn:hover {
+	background: linear-gradient(135deg, #5fd4b3, #4ecca3);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 16px rgba(78, 204, 163, 0.4);
+}
+
+.complete-level-btn:active {
+	transform: translateY(0);
+	box-shadow: 0 2px 4px rgba(78, 204, 163, 0.3);
+}
+
+@keyframes pulse-glow {
+	0%, 100% {
+		box-shadow: 0 4px 8px rgba(78, 204, 163, 0.3);
+	}
+	50% {
+		box-shadow: 0 4px 20px rgba(78, 204, 163, 0.6), 0 0 30px rgba(78, 204, 163, 0.3);
+	}
+}
+
+/* Level Selection (simplified for now) */
+.level-select {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.level-card-simple {
+	background-color: #16213e;
+	border: 4px solid #0f3460;
+	padding: 30px 50px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-align: center;
+}
+
+.level-card-simple:hover {
+	border-color: #f39c12;
+	transform: scale(1.05);
+}
+
+/* Success Modal */
+.success-modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #16213e;
+	border: 4px solid #4ecca3;
+	padding: 40px;
+	text-align: center;
+	display: none;
+	z-index: 1000;
+	min-width: 400px;
+	box-shadow: 0 0 20px rgba(78, 204, 163, 0.3);
+}
+
+.success-modal h2 {
+	color: #4ecca3;
+	font-size: 16px;
+	margin-bottom: 20px;
+	font-family: 'Press Start 2P', monospace;
+	text-shadow: 2px 2px 0px #000;
+}
+
+.success-modal p {
+	font-size: 10px;
+	margin-bottom: 30px;
+	color: #eee;
+	font-family: 'Press Start 2P', monospace;
+	line-height: 1.6;
+}
+
+.success-buttons {
+	display: flex;
+	gap: 15px;
+	justify-content: center;
+}
+
+.success-modal .submit-button {
+	background-color: #4ecca3;
+	color: #16213e;
+	border: none;
+	padding: 12px 24px;
+	font-family: 'Press Start 2P', monospace;
+	font-size: 10px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-transform: uppercase;
+	flex: 1;
+	max-width: 200px;
+}
+
+.success-modal .submit-button.next-level {
+	background-color: #f39c12;
+	color: #16213e;
+}
+
+.success-modal .submit-button.back-menu {
+	background-color: #e94560;
+	color: white;
+}
+
+.success-modal .submit-button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.success-modal .submit-button.next-level:hover {
+	background-color: #e67e22;
+}
+
+.success-modal .submit-button.back-menu:hover {
+	background-color: #c7385a;
+}
+
+@media (max-width: 768px) {
+	.success-buttons {
+		flex-direction: column;
+		gap: 10px;
+	}
+}
+
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: none;
+	z-index: 999;
+}

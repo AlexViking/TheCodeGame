@@ -1,0 +1,46 @@
+{
+	"id": "js-2",
+	"name": "JavaScript - DOM Manipulation",
+	"description": "Learn to change HTML content with JavaScript",
+	"icon": "js-icon.svg",
+	"difficulty": "beginner",
+	"levelNumber": 2,
+	"category": "JAVASCRIPT",
+	"prerequisites": ["js-1"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Create a paragraph with an id attribute",
+			"hint": "Add an id to your paragraph: &lt;p id=\"demo\"&gt;Original text&lt;/p&gt;. IDs help JavaScript find specific elements.",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "<p[^>]*id=",
+				"flags": "i"
+			}
+		},
+		{
+			"id": 2,
+			"text": "Use document.getElementById to select the element",
+			"hint": "In your script, write: let element = document.getElementById(\"demo\"); This gets the element with id=\"demo\".",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "document.getElementById"
+			}
+		},
+		{
+			"id": 3,
+			"text": "Change the element's text using innerHTML",
+			"hint": "Change the text: element.innerHTML = \"Text changed by JavaScript!\"; innerHTML lets you modify what's inside an element.",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "innerHTML"
+			}
+		}
+	],
+	"completion": {
+		"unlocks": ["js-3"],
+		"message": "🎉 Excellent! You can now control HTML with JavaScript!",
+		"achievement": "js_dom_manipulation",
+		"keyValue": "JS02_DOM_MANIPULATION"
+	}
+}

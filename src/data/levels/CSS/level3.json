@@ -1,0 +1,53 @@
+{
+	"id": "css-3",
+	"name": "CSS - Colors & Backgrounds",
+	"description": "Master colors, backgrounds, and visual styling",
+	"icon": "css-icon.svg",
+	"difficulty": "beginner",
+	"levelNumber": 3,
+	"category": "CSS",
+	"prerequisites": ["css-2"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Create a div element with some text",
+			"hint": "Add a div container to your HTML: &lt;div&gt;This is my content&lt;/div&gt;. Divs are generic containers for grouping content.",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<div>"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</div>" }
+				}
+			]
+		},
+		{
+			"id": 2,
+			"text": "Give the div a background color using CSS",
+			"hint": "Style your div: div { background-color: lightblue; }. Background-color changes the background of an element.",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "div\\s*{[^}]*background-color\\s*:",
+				"flags": "i"
+			}
+		},
+		{
+			"id": 3,
+			"text": "Add padding to create space inside the div",
+			"hint": "Add padding to your div: div { background-color: lightblue; padding: 20px; }. Padding creates space between content and borders.",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "div\\s*{[^}]*padding\\s*:",
+				"flags": "i"
+			}
+		}
+	],
+	"completion": {
+		"unlocks": ["css-4"],
+		"message": "🎉 Perfect! You've mastered colors and backgrounds!",
+		"achievement": "css_colors_backgrounds",
+		"keyValue": "CSS03_COLORS_BACKGROUNDS"
+	}
+}

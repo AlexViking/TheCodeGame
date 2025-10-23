@@ -1,0 +1,48 @@
+{
+	"id": "html-2",
+	"name": "HTML - Headings & Structure",
+	"description": "Learn about HTML headings and basic document structure",
+	"icon": "html-icon.svg",
+	"difficulty": "beginner",
+	"levelNumber": 2,
+	"category": "HTML",
+	"prerequisites": ["html-1"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Add a heading using the &lt;h1&gt; tag",
+			"hint": "Headings make text bigger and bolder. HTML has 6 heading sizes (h1-h6). Try: &lt;h1&gt;My Title&lt;/h1&gt; above your paragraph. H1 is the largest!",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<h1>"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</h1>" }
+				}
+			]
+		},
+		{
+			"id": 2,
+			"text": "Include at least one paragraph with the &lt;p&gt; tag",
+			"hint": "Make sure you have a paragraph below your heading. Use &lt;p&gt;Your content here&lt;/p&gt;",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<p>"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</p>" }
+				}
+			]
+		}
+	],
+	"completion": {
+		"unlocks": ["html-3"],
+		"message": "🎉 Excellent! You understand headings and structure!",
+		"achievement": "html_headings",
+		"keyValue": "HTML02_HEADINGS_STRUCT"
+	}
+}

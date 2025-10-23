@@ -1,0 +1,58 @@
+{
+	"id": "js-1",
+	"name": "JavaScript - First Steps",
+	"description": "Your first encounter with JavaScript - learn about variables and output",
+	"icon": "js-icon.svg",
+	"difficulty": "beginner",
+	"levelNumber": 1,
+	"category": "JAVASCRIPT",
+	"prerequisites": ["css-6"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Create a paragraph with an id for output",
+			"hint": "Start with HTML: &lt;p id=\"output\"&gt;This will change&lt;/p&gt;. We'll use JavaScript to modify this text!",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "<p[^>]*id=",
+				"flags": "i"
+			}
+		},
+		{
+			"id": 2,
+			"text": "Add a &lt;script&gt; tag to your HTML",
+			"hint": "JavaScript goes inside &lt;script&gt; tags! Add: &lt;script&gt;&lt;/script&gt; after your paragraph. This is where we'll write JavaScript code.",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<script>"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</script>" }
+				}
+			]
+		},
+		{
+			"id": 3,
+			"text": "Create a variable and display it in the paragraph",
+			"hint": "Inside script tags, write: let message = \"Hello JavaScript!\"; document.getElementById(\"output\").innerHTML = message; This shows the variable on the page!",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "let"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "innerHTML" }
+				}
+			]
+		}
+	],
+	"completion": {
+		"unlocks": ["js-2"],
+		"message": "🎉 Great start! You've learned about JavaScript variables and output!",
+		"achievement": "js_first_steps",
+		"keyValue": "JS01_FIRST_STEPS"
+	}
+}

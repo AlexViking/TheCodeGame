@@ -1,0 +1,61 @@
+{
+	"id": "js-5",
+	"name": "JavaScript - Loops & Arrays",
+	"description": "Learn about loops and working with multiple data items",
+	"icon": "js-icon.svg",
+	"difficulty": "intermediate",
+	"levelNumber": 5,
+	"category": "JAVASCRIPT",
+	"prerequisites": ["js-4"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Create an array of items",
+			"hint": "Declare an array: let fruits = [\"apple\", \"banana\", \"orange\"]; Arrays store multiple values in one variable.",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "\\[.*,.*\\]",
+				"flags": "i"
+			}
+		},
+		{
+			"id": 2,
+			"text": "Create an unordered list in HTML to display the array",
+			"hint": "Add: &lt;ul id=\"fruitList\"&gt;&lt;/ul&gt;. We'll use JavaScript to fill this list with array items.",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<ul"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</ul>" }
+				}
+			]
+		},
+		{
+			"id": 3,
+			"text": "Use a for loop to display each array item",
+			"hint": "Loop through array: for (let i = 0; i < fruits.length; i++) { document.getElementById(\"fruitList\").innerHTML += \"&lt;li&gt;\" + fruits[i] + \"&lt;/li&gt;\"; } Loops repeat code.",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "for"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "regex",
+					"checkParams": {
+						"pattern": "for\\s*\\(",
+						"flags": "i"
+					}
+				}
+			]
+		}
+	],
+	"completion": {
+		"unlocks": ["js-6"],
+		"message": "🎉 Fantastic! You can now work with arrays and loops!",
+		"achievement": "js_loops_arrays",
+		"keyValue": "JS05_LOOPS_ARRAYS"
+	}
+}

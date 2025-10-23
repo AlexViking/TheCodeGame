@@ -1,0 +1,43 @@
+{
+	"id": "html-4",
+	"name": "HTML - Links & Navigation",
+	"description": "Learn to create links that connect the web",
+	"icon": "html-icon.svg",
+	"difficulty": "beginner",
+	"levelNumber": 4,
+	"category": "HTML",
+	"prerequisites": ["html-3"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Add a link using the &lt;a&gt; tag with an href attribute",
+			"hint": "Links connect web pages! Use: &lt;a href=\"https://google.com\"&gt;Click me&lt;/a&gt;. The href attribute tells the browser where to go when clicked.",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "<a\\s+(?:[^>]*?\\s+)?href=",
+				"flags": "i"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</a>" }
+				}
+			]
+		},
+		{
+			"id": 2,
+			"text": "Create at least 2 different links",
+			"hint": "Add more links to different websites. Try linking to your favorite sites or useful resources!",
+			"checkType": "complex",
+			"checkParams": {
+				"function": "(code) => { const linkCount = (code.match(/<a\\s+[^>]*href=/gi) || []).length; return linkCount >= 2; }"
+			}
+		}
+	],
+	"completion": {
+		"unlocks": ["html-5"],
+		"message": "🎉 Amazing! You can now connect pages with links!",
+		"achievement": "html_links",
+		"keyValue": "HTML04_LINKS_NAV"
+	}
+}

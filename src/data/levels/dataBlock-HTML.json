@@ -1,0 +1,98 @@
+{
+	"id": "html",
+	"name": "HTML BASICS",
+	"description": "Master the structure of the web",
+	"icon": "html-icon.svg",
+	"difficulty": "beginner",
+	"rules": [
+		{
+			"id": 1,
+			"text": "Type any text to get started!",
+			"hint": "HTML can display text directly. Try typing 'Hello World' or any message you like. This text will appear in the preview!",
+			"checkType": "custom",
+			"checkParams": {
+				"function": "(code) => code.trim().length > 0"
+			}
+		},
+		{
+			"id": 2,
+			"text": "Now wrap your text in a &lt;p&gt; tag",
+			"hint": "The &lt;p&gt; tag creates a paragraph. Use it like this: &lt;p&gt;Your text here&lt;/p&gt;. The opening tag &lt;p&gt; starts the paragraph, and the closing tag &lt;/p&gt; ends it.",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<p>"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</p>" }
+				}
+			]
+		},
+		{
+			"id": 3,
+			"text": "Add a heading using the &lt;h1&gt; tag",
+			"hint": "Headings make text bigger and bolder. HTML has 6 heading sizes (h1-h6). Try: &lt;h1&gt;My Title&lt;/h1&gt; above your paragraph. H1 is the largest!",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<h1>"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</h1>" }
+				}
+			]
+		},
+		{
+			"id": 4,
+			"text": "Create a list with at least 2 items using &lt;ul&gt; and &lt;li&gt;",
+			"hint": "Lists organize items with bullet points. Structure: &lt;ul&gt; (starts the list) then &lt;li&gt;Item 1&lt;/li&gt; and &lt;li&gt;Item 2&lt;/li&gt; then &lt;/ul&gt; (ends the list)",
+			"checkType": "complex",
+			"checkParams": {
+				"function": "(code) => { const hasUl = code.includes('<ul>') && code.includes('</ul>'); const liCount = (code.match(/<li>/g) || []).length; return hasUl && liCount >= 2; }"
+			}
+		},
+		{
+			"id": 5,
+			"text": "Add a link using the &lt;a&gt; tag with an href attribute",
+			"hint": "Links connect web pages! Use: &lt;a href=\"https://google.com\"&gt;Click me&lt;/a&gt;. The href attribute tells the browser where to go when clicked.",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "<a\\s+(?:[^>]*?\\s+)?href=",
+				"flags": "i"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</a>" }
+				}
+			]
+		},
+		{
+			"id": 6,
+			"text": "Make something bold with &lt;strong&gt; and italic with &lt;em&gt;",
+			"hint": "&lt;strong&gt;makes text bold&lt;/strong&gt; and &lt;em&gt;makes text italic&lt;/em&gt;. These tags emphasize important text. Try using both in your content!",
+			"checkType": "complex",
+			"checkParams": {
+				"function": "(code) => { const hasStrong = code.includes('<strong>') && code.includes('</strong>'); const hasEm = code.includes('<em>') && code.includes('</em>'); return hasStrong && hasEm; }"
+			}
+		},
+		{
+			"id": 7,
+			"text": "Create a complete HTML document with &lt;html&gt;, &lt;head&gt;, and &lt;body&gt; tags",
+			"hint": "A proper HTML document has structure: &lt;html&gt; (root), &lt;head&gt; (metadata), &lt;body&gt; (visible content). Wrap everything: &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;[your content]&lt;/body&gt;&lt;/html&gt;",
+			"checkType": "complex",
+			"checkParams": {
+				"function": "(code) => { const hasHtml = code.includes('<html>') && code.includes('</html>'); const hasHead = code.includes('<head>') && code.includes('</head>'); const hasBody = code.includes('<body>') && code.includes('</body>'); return hasHtml && hasHead && hasBody; }"
+			}
+		}
+	],
+	"completion": {
+		"unlocks": ["css"],
+		"message": "🎉 You've mastered HTML basics! CSS is now unlocked!",
+		"achievement": "html_master",
+		"xp": 100,
+		"subject": "html"
+	}
+}

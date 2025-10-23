@@ -1,0 +1,41 @@
+{
+	"id": "html-1",
+	"name": "HTML - First Steps",
+	"description": "Your first encounter with HTML - learn about text and basic tags",
+	"icon": "html-icon.svg",
+	"difficulty": "beginner",
+	"levelNumber": 1,
+	"category": "HTML",
+	"rules": [
+		{
+			"id": 1,
+			"text": "Type any text to get started!",
+			"hint": "HTML can display text directly. Try typing 'Hello World' or any message you like. This text will appear in the preview!",
+			"checkType": "custom",
+			"checkParams": {
+				"function": "(code) => code.trim().length > 0"
+			}
+		},
+		{
+			"id": 2,
+			"text": "Now wrap your text in a &lt;p&gt; tag",
+			"hint": "The &lt;p&gt; tag creates a paragraph. Use it like this: &lt;p&gt;Your text here&lt;/p&gt;. The opening tag &lt;p&gt; starts the paragraph, and the closing tag &lt;/p&gt; ends it.",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<p>"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</p>" }
+				}
+			]
+		}
+	],
+	"completion": {
+		"unlocks": ["html-2"],
+		"message": "🎉 Great start! You've learned about text and paragraphs!",
+		"achievement": "html_first_steps",
+		"keyValue": "HTML01_FIRST_STEPS"
+	}
+}

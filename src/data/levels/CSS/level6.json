@@ -1,0 +1,78 @@
+{
+	"id": "css-6",
+	"name": "CSS - Advanced Styling",
+	"description": "Create a complete styled webpage with advanced CSS",
+	"icon": "css-icon.svg",
+	"difficulty": "intermediate",
+	"levelNumber": 6,
+	"category": "CSS",
+	"prerequisites": ["css-5"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Create a navigation bar with class-based styling",
+			"hint": "Create: &lt;nav class=\"navbar\"&gt;&lt;a href=\"#\"&gt;Home&lt;/a&gt;&lt;a href=\"#\"&gt;About&lt;/a&gt;&lt;/nav&gt; and style: .navbar a { text-decoration: none; padding: 10px; }",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<nav"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "class=" }
+				},
+				{
+					"checkType": "regex",
+					"checkParams": {
+						"pattern": "\\.\\w+\\s+a\\s*{[^}]*text-decoration\\s*:\\s*none",
+						"flags": "i"
+					}
+				}
+			]
+		},
+		{
+			"id": 2,
+			"text": "Add hover effects to your navigation links",
+			"hint": "Make links interactive: .navbar a:hover { background-color: lightblue; }. The :hover pseudo-class triggers when mouse hovers.",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "\\.\\w+\\s+a:hover\\s*{",
+				"flags": "i"
+			}
+		},
+		{
+			"id": 3,
+			"text": "Create a card with rounded corners and shadow",
+			"hint": "Add: &lt;div class=\"card\"&gt;Card content&lt;/div&gt; and style: .card { border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; }",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "class=\"card\""
+			},
+			"additionalChecks": [
+				{
+					"checkType": "regex",
+					"checkParams": {
+						"pattern": "\\.card\\s*{[^}]*border-radius\\s*:",
+						"flags": "i"
+					}
+				},
+				{
+					"checkType": "regex",
+					"checkParams": {
+						"pattern": "\\.card\\s*{[^}]*box-shadow\\s*:",
+						"flags": "i"
+					}
+				}
+			]
+		}
+	],
+	"completion": {
+		"unlocks": ["js-1"],
+		"message": "🎉 Congratulations! You've mastered CSS fundamentals! JavaScript levels are now unlocked! You've earned bonus XP for completing all CSS levels!",
+		"achievement": "css_master",
+		"xp": 100,
+		"subject": "css",
+		"bonusXP": 200,
+		"isLastInCategory": true
+	}
+}

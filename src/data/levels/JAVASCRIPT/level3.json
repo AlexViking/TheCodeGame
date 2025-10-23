@@ -1,0 +1,74 @@
+{
+	"id": "js-3",
+	"name": "JavaScript - User Interaction",
+	"description": "Learn to handle user clicks and create interactive elements",
+	"icon": "js-icon.svg",
+	"difficulty": "beginner",
+	"levelNumber": 3,
+	"category": "JAVASCRIPT",
+	"prerequisites": ["js-2"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Create a button and a paragraph to show the click count",
+			"hint": "Add: &lt;button id=\"myButton\"&gt;Click me!&lt;/button&gt;&lt;p id=\"counter\"&gt;Clicks: 0&lt;/p&gt;. We'll count button clicks!",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<button"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</button>" }
+				},
+				{
+					"checkType": "regex",
+					"checkParams": {
+						"pattern": "<p[^>]*id=",
+						"flags": "i"
+					}
+				}
+			]
+		},
+		{
+			"id": 2,
+			"text": "Create a variable to track clicks and a function to increment it",
+			"hint": "Write: let clickCount = 0; function incrementCounter() { clickCount++; document.getElementById(\"counter\").innerHTML = \"Clicks: \" + clickCount; }",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "function"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "let" }
+				},
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "++" }
+				}
+			]
+		},
+		{
+			"id": 3,
+			"text": "Add an event listener to make the button interactive",
+			"hint": "Connect button to function: document.getElementById(\"myButton\").addEventListener(\"click\", incrementCounter); Now the counter will increase each click!",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "addEventListener"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "click" }
+				}
+			]
+		}
+	],
+	"completion": {
+		"unlocks": ["js-4"],
+		"message": "🎉 Perfect! You've created interactive elements with JavaScript!",
+		"achievement": "js_user_interaction",
+		"keyValue": "JS03_USER_INTERACTION"
+	}
+}

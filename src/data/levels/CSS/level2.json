@@ -1,0 +1,68 @@
+{
+	"id": "css-2",
+	"name": "CSS - Text Styling",
+	"description": "Learn to style text with font properties and sizes",
+	"icon": "css-icon.svg",
+	"difficulty": "beginner",
+	"levelNumber": 2,
+	"category": "CSS",
+	"prerequisites": ["css-1"],
+	"rules": [
+		{
+			"id": 1,
+			"text": "Create a heading using the &lt;h1&gt; tag",
+			"hint": "Add a heading to your HTML: &lt;h1&gt;My Title&lt;/h1&gt;. Headings are important for document structure.",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<h1>"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "contains",
+					"checkParams": { "text": "</h1>" }
+				}
+			]
+		},
+		{
+			"id": 2,
+			"text": "Make the heading 24px in size using CSS",
+			"hint": "Style your heading: h1 { font-size: 24px; }. The font-size property controls how big text appears.",
+			"checkType": "regex",
+			"checkParams": {
+				"pattern": "h1\\s*{[^}]*font-size\\s*:\\s*24px",
+				"flags": "i"
+			}
+		},
+		{
+			"id": 3,
+			"text": "Create a paragraph and make it bold and centered",
+			"hint": "Add &lt;p&gt;Some text&lt;/p&gt; then style it: p { font-weight: bold; text-align: center; }. Font-weight controls boldness, text-align controls positioning.",
+			"checkType": "contains",
+			"checkParams": {
+				"text": "<p>"
+			},
+			"additionalChecks": [
+				{
+					"checkType": "regex",
+					"checkParams": {
+						"pattern": "p\\s*{[^}]*font-weight\\s*:\\s*bold",
+						"flags": "i"
+					}
+				},
+				{
+					"checkType": "regex",
+					"checkParams": {
+						"pattern": "p\\s*{[^}]*text-align\\s*:\\s*center",
+						"flags": "i"
+					}
+				}
+			]
+		}
+	],
+	"completion": {
+		"unlocks": ["css-3"],
+		"message": "🎉 Excellent! You can now style text like a pro!",
+		"achievement": "css_text_styling",
+		"keyValue": "CSS02_TEXT_STYLING"
+	}
+}
